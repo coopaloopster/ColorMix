@@ -20,9 +20,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var greenSlider: UISlider!
     @IBOutlet weak var blueSlider: UISlider!
     
+    @IBOutlet weak var redLabel: UILabel!
+    @IBOutlet weak var greenLabel: UILabel!
+    @IBOutlet weak var blueLabel: UILabel!
+    
     // MARK: - Instance Properties
-    
-    
     // MARK: - VDL
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,24 +61,22 @@ class ViewController: UIViewController {
         
         if redSwitch.isOn {
             red = CGFloat(redSlider.value)
+            redLabel.text = "R = \(redSlider.value)"
         }
         
         if greenSwitch.isOn {
             green = CGFloat(greenSlider.value)
+            greenLabel.text = "G = \(greenSlider.value)"
         }
         
         if blueSwitch.isOn {
             blue = CGFloat(blueSlider.value)
+            blueLabel.text = "B = \(blueSlider.value)"
         }
         
-        
-        
         let color = UIColor(red: red, green: green, blue: blue, alpha: 1)
-        //assign color to our colorView
         
         colorView.backgroundColor = color
-        
-        
     }
     
     func reset() {
@@ -87,6 +87,10 @@ class ViewController: UIViewController {
             redSlider.value = 0.5
             blueSlider.value = 0.5
             greenSlider.value = 0.5
+        
+            redLabel.text = "R = \(redSlider.value)"
+            greenLabel.text = "G = \(greenSlider.value)"
+            blueLabel.text = "B = \(blueSlider.value)"
         
             updateUI()
             updateSliderControls()
